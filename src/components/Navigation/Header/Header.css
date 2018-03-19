@@ -1,0 +1,59 @@
+@import '../../../base/vars.css';
+
+.header {
+  background-color: var(--tertiaryBgColor);
+  height: var(--headerHeight);
+}
+
+@media (max-width: 660px) {
+  .header {
+    height: var(--headerMobileHeight);
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 55px;
+}
+
+@media (max-width: 660px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+}
+
+@media (max-width: 660px) {
+  .logo {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.drawerToggle {
+  display: none;
+}
+
+@media (max-width: 660px) {
+  .drawerToggle {
+    display: inline-block;
+  }
+}
+
+.drawerLine {
+  background-color: var(--secondaryBgColor);
+  width: 35px;
+  height: 3px;
+  margin-bottom: 7px;
+}
+
+.drawerLine:last-child {
+  margin-bottom: 0;
+}

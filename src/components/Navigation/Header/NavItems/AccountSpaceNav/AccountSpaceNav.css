@@ -1,0 +1,48 @@
+@import '../../../../../base/vars.css';
+
+.accountSpaceButton {
+  position: relative;
+  list-style-type: none;
+  margin-left: 40px;
+}
+
+.accountSpaceList {
+  position: absolute;
+  padding: 16px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  background-color: var(--secondaryBgColor);
+  border-radius: 2px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.accountSpaceItem {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.accountSpaceItem:last-child {
+  padding-top: 0;
+}
+
+.accountSpaceLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--primaryColor);
+}
+
+.accountSpaceLink:hover {
+  text-decoration: underline;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: var(--quinaryBgColor);
+}

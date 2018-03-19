@@ -1,0 +1,140 @@
+@import '../../base/vars.css';
+
+.gameWrapper {
+  margin: 20px auto 0 auto;
+  background-color: #fff;
+  width: 70%;
+}
+
+@media (max-width: 660px) {
+  .gameWrapper {
+    width: 100%;
+  }
+}
+
+.introContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primaryColor);
+  padding: 40px;
+  font-size: 18px;
+  color: white;
+}
+
+.introTitle {
+  text-align: center;
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+.introDescription {
+  margin: 0;
+}
+
+.startButton {
+  display: block;
+  background: #d32f2e;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10%;
+  padding: 10px 30px;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.gameContainer {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.progressCounter {
+  color: var(--quaternaryColor);
+  font-size: 24px;
+}
+
+.gameQuestionTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.gameImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.resultsContainer {
+  display: flex;
+  padding: 40px;
+}
+
+.resultsTitle {
+  font-size: 48px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.resultsDescription {
+  font-size: 18px;
+}
+
+@media (max-width: 660px) {
+  .resultsTitle {
+    font-size: 30px;
+  }
+
+  .resultsDescription {
+    font-size: 14px;
+  }
+}
+
+.pipe {
+  background-color: var(--primaryColor);
+  height: 100px;
+  margin-left: 15px;
+  margin-right: 15px;
+  min-width: 8px;
+}
+
+.ButtonWrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 350px;
+}
+
+.answerTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.right {
+  color: #479649;
+}
+
+.wrong {
+  color: #d32f2e;
+}
+
+.Hidden {
+  display: none;
+}
+
+.loaderContainer {
+  margin-top: 100px;
+  padding-left: 50%;
+}
+
+.gameImageContainer {
+  max-height: 500px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  background-color: gray;
+}

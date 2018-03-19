@@ -1,0 +1,32 @@
+@import '../../base/vars.css';
+
+.itemWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  height: 140px;
+  width: 140px;
+  background-color: var(--quinaryBgColor);
+  border-radius: 50%;
+  margin: 0 20px;
+}
+
+.displayName {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.authorInfoWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}

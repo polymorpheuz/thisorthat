@@ -1,0 +1,13 @@
+@import '../../base/vars.css';
+
+.bodyWrapper {
+  background-color: var(--primaryBgColor);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.bodyContainer {
+  display: flex;
+  background: white;
+  height: 100%;
+}

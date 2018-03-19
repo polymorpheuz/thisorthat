@@ -1,0 +1,110 @@
+@import '../../base/vars.css';
+
+.item {
+  height: 100%;
+  width: calc(33.3% - 13px);
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: white;
+}
+
+.item:nth-child(3n+1) {
+  margin-left: 0px;
+}
+
+@media (max-width: 660px) {
+  .item {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 660px) and (max-width: 1024px) {
+  .item {
+    width: calc(50% - 13px);
+    margin-left: 20px;
+  }
+  .item:nth-child(odd) {
+    margin-left: 0px;
+  }
+}
+
+.itemCoverContainer {
+  min-height: 165px;
+  max-height: 165px;
+  overflow: hidden;
+  height: 100%;
+  background-color: var(--quinaryBgColor);
+}
+
+@media (max-width: 660px) {
+  .itemCoverContainer {
+    min-height: 150px;
+    max-height: 165px;
+  }
+}
+
+@media (min-width: 660px) and (max-width: 1024px) {
+  .itemCoverContainer {
+    max-height: 160px;
+  }
+}
+
+.itemCover {
+  width: 100%;
+  height: auto;
+}
+
+.itemLink {
+  text-decoration: none;
+}
+
+.itemTitle {
+  margin: 20px 0 0 20px;
+  color: var(--primaryColor);
+  font-size: 26px;
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.itemMeta {
+  display: flex;
+}
+
+.itemAvatar {
+  background: var(--quinaryBgColor);
+  width: 40px;
+  height: 40px;
+}
+
+.profileLink {
+  color: var(--primaryColor);
+  font-size: 14px;
+  margin: 0;
+}
+
+.profileLink:hover {
+  color: var(--quinaryColor);
+}
+
+.dateLink {
+  font-size: 14px;
+  color: var(--tertiaryColor);
+  margin: 0; 
+}
+
+.itemCreatorAndDate {
+  margin-left: 10px; 
+}
+
+.icon {
+  color: inherit;
+  font-size: inherit;
+  position: relative;    
+  z-index: 100;
+}

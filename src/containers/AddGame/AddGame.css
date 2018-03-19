@@ -1,0 +1,20 @@
+.questionImagePreview {
+  margin: 10px;
+  max-height: 100px;
+  background-size: cover;
+}
+
+.coverPreview {
+  margin: 20px;
+  max-height: 100px;
+}
+
+.warning {
+  margin: auto;
+  font-size: 28px;
+  text-align: center;
+}
+
+.link {
+  margin: 0 5px;
+}

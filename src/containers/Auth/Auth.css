@@ -1,0 +1,47 @@
+@import '../../base/vars.css';
+
+.formWrapper {
+  width: 60%;
+  margin: 20px auto 0 auto;
+  background-color: #fff;
+  padding: 40px;
+}
+
+@media (max-width: 660px) {
+  .formWrapper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 660px) {
+  .formWrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 900px) {
+  .formWrapper {
+    width: 70%;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorMessage {
+  margin-top: 0;
+  padding: 10px;
+  color: white;
+  background-color: var(--tertiaryBgColor);
+}
+
+.formTitle {
+  margin-top: 0;
+}
+
+.formInput {
+  margin-bottom: 15px;
+}

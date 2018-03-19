@@ -1,0 +1,29 @@
+.sortingWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 65px;
+  padding: 0 20px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.sortingContainer {
+  width: 100%;
+}
+
+.itemWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.loaderContainer {
+  margin-top: 100px;
+  padding-left: 50%;
+}
+
+.sortingLink {
+  cursor: pointer;
+  margin: 0 10px;
+}

@@ -1,0 +1,59 @@
+@import '../../../../../base/vars.css';
+
+.navItem {
+  list-style-type: none;
+  margin-right: 30px;
+}
+
+@media (max-width: 660px) {
+  .navItem {
+    width: 100%;
+  }
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: .6;
+  color: var(--secondaryColor);
+}
+
+.navLink:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -5px;
+  border-bottom: 3px solid transparent;
+}
+
+.navLink:hover {
+  opacity: 1;
+}
+
+.navLink:hover:after {
+  border-bottom-color: var(--secondaryColor);
+}
+
+@media (max-width: 660px) {
+  .navLink {
+    display: block;
+    color: var(--primaryColor);
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+}
+
+.active {
+  list-style-type: none;
+  opacity: 1;
+}
+
+.active:after {
+  border-bottom-color: var(--secondaryColor);
+}
