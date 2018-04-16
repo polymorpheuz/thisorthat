@@ -33,8 +33,14 @@ class AuthorProfile extends Component {
           <div className={classes.textWrapper}>
             <span className={classes.displayName}>{userData.displayName}</span>
             <span className={classes.bio}>{userData.bio}</span>
-            <span className={classes.bio}>{filteredGames.length} games</span>
-            <span className={classes.bio}>{overallRating} overall rating</span>
+            <span className={classes.bio}>
+              <span className={classes.infoCounter}>{filteredGames.length} </span>
+              games
+            </span>
+            <span className={classes.bio}>
+            <span className={classes.infoCounter}>{overallRating} </span>
+            overall rating
+            </span>
           </div>
         </div>
         <div className={classes.itemWrapper}>
