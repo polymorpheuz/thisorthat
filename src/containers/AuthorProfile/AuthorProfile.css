@@ -30,3 +30,8 @@
   flex-direction: column;
   max-width: 500px;
 }
+
+.infoCounter {
+  font-weight: 700;
+  font-size: 18px;
+}

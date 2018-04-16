@@ -9,7 +9,7 @@ const propTypes = {
   allGames: PropTypes.array.isRequired,  
   decreaseRating: PropTypes.func.isRequired,
   increaseRating: PropTypes.func.isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string,
   users: PropTypes.object.isRequired
 }
 
