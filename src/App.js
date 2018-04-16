@@ -24,6 +24,8 @@ class App extends Component {
     render () {
         let routes = (
             <Switch>
+                <Route path="/game/:id" component={Game}></Route>
+                <Route path="/user/:id" component={AuthorProfile}></Route>
                 <Route path="/signup" component={Signup}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/" exact component={allGamesList}></Route>

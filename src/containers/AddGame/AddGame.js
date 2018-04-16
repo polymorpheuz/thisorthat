@@ -278,11 +278,11 @@ class AddGame extends Component {
                   /> 
                   { 
                     ((formElement.config.label === 'Answer Image URL' || formElement.config.label === 'Question Image URL')
-                    && <img className={classes.questionImagePreview} src={formElement.config.value}/>) 
+                    && <img className={classes.imagePreview} src={formElement.config.value}/>) 
                   }   
                   {
                     (formElement.config.label === 'Image Cover' 
-                    && <img className={classes.coverPreview} src={formElement.config.value}/>) 
+                    && <img className={classes.imagePreview} src={formElement.config.value}/>) 
                   }                
                 </Aux>    
               )

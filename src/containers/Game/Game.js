@@ -27,8 +27,8 @@ class Game extends Component {
     rightAnswerArray: [],
     resultOptions: [
       {
-        title: "Stupido!",
-        description: "Your parents are ashamed of you! Your parents are ashamed of you! Your parents are ashamed of you!"
+        title: "You don't know a thing",
+        description: "If there was a goal to improve your knowledge of this topic this is the right time."
       },
       {
         title: "Average Johny",
