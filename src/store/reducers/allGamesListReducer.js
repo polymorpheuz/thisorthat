@@ -9,17 +9,17 @@ const initialState = {
   error: null
 }
 
-const setAllGamesStart = (state, action) => {
-  return updateObject(state, { loading: true })
-}
+const setAllGamesStart = (state, action) => updateObject(state,
+  { loading: true }
+);
 
-const setAllGamesSuccess = (state, action) => {
-  return updateObject(state, { allGames: action.games, loading: false })
-}
+const setAllGamesSuccess = (state, action) => updateObject(state,
+  { allGames: action.games, loading: false }
+);
 
-const setAllGamesFail = (state, action) => {
-  return updateObject(state, { loading: false, error: action.error })
-}
+const setAllGamesFail = (state, action) => updateObject(state,
+  { loading: false, error: action.error }
+);
 
 const setUsers = (state, action) => {
   return updateObject(state, { loading: false, users: action.users })

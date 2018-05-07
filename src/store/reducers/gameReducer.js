@@ -7,17 +7,11 @@ const initialState = {
   error: null
 }
 
-const getGameStart = (state, action) => {
-  return updateObject(state, { loading: true })
-}
+const getGameStart = (state, action) => updateObject(state, { loading: true });
 
-const setGame = (state, action) => {
-  return updateObject(state, { chosenGame: action.chosenGame, loading: false })
-}
+const setGame = (state, action) => updateObject(state, { chosenGame: action.chosenGame, loading: false });
 
-const getGameFail = (state, action) => {
-  return updateObject(state, { loading: false, error: action.errorText })
-}
+const getGameFail = (state, action) => updateObject(state, { loading: false, error: action.errorText });
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {

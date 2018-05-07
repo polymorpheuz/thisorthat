@@ -9,51 +9,42 @@ const initialState = {
   error: null
 }
 
-const loginStart = state => {
-  return updateObject(state, { loading: true });
-}
+const loginStart = state => updateObject(state,
+  { loading: true }
+);
 
-const loginFail = (state, action) => {
-  let errorMessage = null;
-  if(action.errorMessage === 'EMAIL_NOT_FOUND') {
-    errorMessage = 'This email is not found';
+const loginFail = (state, action) => updateObject(state,
+  { loading: false, error: action.errorMessage }
+);
+
+const signupStart = state => updateObject(state,
+  { loading: true }
+);
+
+const signupFail = (state, action) => updateObject(state, 
+  { loading: false, error: action.errorMessage }
+);
+
+const setUser = (state, action) => updateObject(state,
+  {
+    loading: false,
+    userId: action.userId,
+    displayName: action.displayName,
+    avatarUrl: action.avatarUrl
   }
-  if(action.errorMessage === 'INVALID_PASSWORD') {
-    errorMessage = 'Invalid password';
-  }
-  return updateObject(state, { loading: false, error: errorMessage });
-}
+);
 
-const signupStart = state => {
-  return updateObject(state, { loading: true });
-}
+const setUserData = (state, action) => updateObject(state,
+  { loading: false }
+);
 
-const signupFail = (state, action) => {
-  let errorMessage = null;
-  if(action.errorMessage === 'EMAIL_EXISTS') {
-    errorMessage = 'This email is registered';
-  }
-  if(action.errorMessage === 'WEAK_PASSWORD : Password should be at least 6 characters') {
-    errorMessage = 'Password should be at least 6 characters';
-  }
-  return updateObject(state, { loading: false, error: errorMessage });
-}
+const getUserDataFail = (state, action) => updateObject(state,
+  { loading: false }
+);
 
-const setUser = (state, action) => {
-  return updateObject(state, { loading: false, userId: action.userId, displayName: action.displayName, avatarUrl: action.avatarUrl })
-}
-
-const setUserData = (state, action) => {
-  return updateObject(state, { loading: false })
-}
-
-const getUserDataFail = (state, action) => {
-  return updateObject(state, { loading: false })
-}
-
-const clearAuthError = (state, action) => {
-  return updateObject(state, { error: null })
-}
+const clearAuthError = (state, action) => updateObject(state, 
+  { error: null }
+);
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {

@@ -1,117 +1,63 @@
 import * as actionTypes from './actionTypes';
 
-export const getGames = userId => {
-  return {
-    type: actionTypes.GET_GAMES,
-    userId
-  }
-}
+export const getGames = userId => ({
+  type: actionTypes.GET_GAMES,
+  userId
+});
 
-export const getGamesStart = () => {
-  return {
-    type: actionTypes.GET_GAMES_START
-  }
-}
+export const getGamesStart = () => ({ type: actionTypes.GET_GAMES_START });
 
-export const getGamesFail = error => {
-  return {
-    type: actionTypes.GET_GAMES_FAIL,
-    error
-  }
-}
+export const getGamesFail = error => ({
+  type: actionTypes.GET_GAMES_FAIL,
+  error
+})
 
-export const setGames = games => {
-  return {
-    type: actionTypes.SET_GAMES,
-    games
-  }
-}
+export const setGames = games => ({
+  type: actionTypes.SET_GAMES,
+  games
+});
 
-export const getUsers = () => {
-  return {
-    type: actionTypes.GET_USERS
-  }
-}
+export const getUsers = () => ({ type: actionTypes.GET_USERS });
 
-export const setUsers = users => {
-  return {
-    type: actionTypes.SET_USERS,
-    users
-  }
-}
-export const getUsersFail = error => {
-  return {
-    type: actionTypes.GET_USERS_FAIL,
-    error
-  }
-}
+export const setUsers = users => ({
+  type: actionTypes.SET_USERS,
+  users
+});
 
-export const sortByRating = order => {
-  return {
-    type: actionTypes.SORT_BY_RATING,
-    order
-  }
-}
+export const getUsersFail = error => ({
+  type: actionTypes.GET_USERS_FAIL,
+  error
+});
 
-export const sortByDate = order => {
-  return {
-    type: actionTypes.SORT_BY_DATE,
-    order
-  }
-}
-
-export const sortBy = (prop, order) => {
-  return {
+export const sortBy = (prop, order) => ({
     type: actionTypes.SORT_BY,
     prop,
     order
-  }
-}
+});
 
-export const ratingIdRemove = (gameId, userId, index) => {
-  return {
-    type: actionTypes.RATING_ID_REMOVE,
-    gameId,
-    userId,
-    index
-  }
-}
+export const ratingIdRemove = (gameId, userId, index) => ({
+  type: actionTypes.RATING_ID_REMOVE,
+  gameId,
+  userId,
+  index
+});
 
-export const ratingIdPush = (gameId, userId, index) => {
-  return {
-    type: actionTypes.RATING_ID_PUSH,
-    gameId,
-    userId,
-    index
-  }
-}
+export const ratingIdPush = (gameId, userId, index) => ({
+  type: actionTypes.RATING_ID_PUSH,
+  gameId,
+  userId,
+  index
+});
 
-export const decreaseRating = (gameId, userId, index) => {
-  return {
-    type: actionTypes.DECREASE_RATING,
-    gameId,
-    userId,
-    index
-  }
-}
+export const decreaseRating = (gameId, userId, index) => ({
+  type: actionTypes.DECREASE_RATING,
+  gameId,
+  userId
+});
 
-export const increaseRating = (gameId, userId, index) => {
-  return {
-    type: actionTypes.INCREASE_RATING,
-    gameId,
-    userId,
-    index
-  }
-}
-
-export const testAction = () => {
-  return {
-    type: actionTypes.TEST_ACTION
-  }
-}
-
-export const cancelAction = () => {
-  return {
-    type: actionTypes.CANCEL_ACTION
-  }
-}
+export const increaseRating = (gameId, userId, index) => ({
+  type: actionTypes.INCREASE_RATING,
+  gameId,
+  userId,
+  index
+});

@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classes from './AuthorProfile.css';
 
-import { getAuthorData } from '../../store/actions/authorProfile';
 import { ratingIdRemove, ratingIdPush } from '../../store/actions/allGamesList';
-import { getGame } from '../../store/actions/game';
 
 import Aux from '../../hoc/Auxx/Auxx';
 import GameTileList from '../../components/GameTileList/GameTileList';
@@ -73,8 +71,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetAuthorData: () => dispatch(getAuthorData()),
-    onGameInit: (gameId) => dispatch(getGame(gameId)),
     onDecreaseRating: (gameId, userId, index) => dispatch(ratingIdRemove(gameId, userId, index)),
     onIncreaseRating: (gameId, userId, index) => dispatch(ratingIdPush(gameId, userId, index))
   }
