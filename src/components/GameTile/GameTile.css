@@ -8,10 +8,6 @@
   background-color: white;
 }
 
-.item:nth-child(3n+1) {
-  margin-left: 0px;
-}
-
 @media (max-width: 660px) {
   .item {
     width: 100%;
@@ -25,6 +21,12 @@
     margin-left: 20px;
   }
   .item:nth-child(odd) {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .item:nth-child(3n+1) {
     margin-left: 0px;
   }
 }

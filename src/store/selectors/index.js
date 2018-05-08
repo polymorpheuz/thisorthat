@@ -22,8 +22,7 @@ export const getSortedGames = createSelector(
     let gamesArrayCopy = null;
     const byIdSortedObj = {};
     if (games.byId !== undefined) {
-      gamesArrayCopy = Object.values(games.byId);
-      console.log('very-veridfied', gamesArrayCopy)   
+      gamesArrayCopy = Object.values(games.byId); 
       
       if(sortingFilter[0] === 'date' && sortingFilter[1] === 'asc') {
         gamesArrayCopy.sort((a, b) => {
