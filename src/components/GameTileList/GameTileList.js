@@ -6,7 +6,7 @@ import GameTile from '../GameTile/GameTile';
 import Rating from '../GameTile/Rating/Rating';
 
 const propTypes = {
-  allGames: PropTypes.array.isRequired,  
+  allGames: PropTypes.object.isRequired,  
   decreaseRating: PropTypes.func.isRequired,
   increaseRating: PropTypes.func.isRequired,
   userId: PropTypes.string,
@@ -15,19 +15,24 @@ const propTypes = {
 
 export const gameTileList = props => {
   let renderedGames = {};
-  renderedGames = props.allGames.map((game, index) => (
-    <GameTile 
-      key={game.gameId} imgCover={game.imgCover} gameId={game.gameId} authorId={game.authorId}
-      userData={props.users[game.authorId]} date={game.date} title={game.questionTitle} rating={game.rating}
-    >
-      <Rating 
-        rating={game.rating}
-        ratingControlDisabled={game.ratingControlDisabled} 
-        decreaseClick={() => props.decreaseRating(game.gameId, props.userId, index)} 
-        increaseClick={() => props.increaseRating(game.gameId, props.userId, index)}
-      />
-    </GameTile>
-  ));
+  renderedGames = props.allGames.allIds.map((game, index) => {
+    const authorId = props.allGames.byId[game].authorId;
+    return (
+      <GameTile 
+        key={props.allGames.byId[game].gameId} imgCover={props.allGames.byId[game].imgCover}
+        gameId={props.allGames.byId[game].gameId} authorId={authorId}
+        userData={props.users.byId[authorId]} date={props.allGames.byId[game].date}
+        title={props.allGames.byId[game].questionTitle} rating={props.allGames.byId[game].rating}
+      >
+        <Rating 
+          rating={props.allGames.byId[game].rating}
+          ratingControlDisabled={props.allGames.byId[game].ratingControlDisabled} 
+          decreaseClick={() => props.decreaseRating(props.allGames.byId[game].gameId, props.userId, index)} 
+          increaseClick={() => props.increaseRating(props.allGames.byId[game].gameId, props.userId, index)}
+        />
+      </GameTile>
+    )
+  });
   return (
     <Aux>
       {renderedGames}

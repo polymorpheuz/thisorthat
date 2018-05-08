@@ -2,8 +2,9 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
-  allGames: [],
-  userId: 'magnitola',
+  allGames: {},
+  filter: ['date', 'asc'],
+  userId: null,
   users: [],
   loading: true,
   error: null
@@ -21,117 +22,42 @@ const setAllGamesFail = (state, action) => updateObject(state,
   { loading: false, error: action.error }
 );
 
-const setUsers = (state, action) => {
-  return updateObject(state, { loading: false, users: action.users })
-}
+const setUsers = (state, action) => updateObject(state,
+  { loading: false, users: action.users }
+);
 
-const getUsersFail = (state, action) => {
-  return updateObject(state, { loading: false, error: action.error })
-}
+const getUsersFail = (state, action) => updateObject(state, 
+  { loading: false, error: action.error }
+);
 
-const sortByRating = (state, action) => {
-  const allGamesCopy = [...state.allGames];
-  allGamesCopy.sort((a, b) => {
-    if(a.rating.length < b.rating.length) {
-      return 1;
-    }
-    if(a.rating.length > b.rating.length) {
-      return -1;
-    }
-    return 0;
-  })
-  return updateObject(state, { allGames: allGamesCopy })
-}
-
-const sortByDate = (state, action) => {
-  const allGamesCopy = [...state.allGames];
-  allGamesCopy.sort((a, b) => {
-    if(new Date(a.date) < new Date(b.date)) {
-      return 1;
-    }
-    if(new Date(a.date) > new Date(b.date)) {
-      return -1;
-    }
-    return 0;
-  })
-  return updateObject(state, { allGames: allGamesCopy })
-}
-
-const sortBy = (state, action) => {
-  const allGamesCopy = [...state.allGames];
-
-  if(action.prop === 'date' && action.order === 'asc') {
-    allGamesCopy.sort((a, b) => {
-      if(new Date(a.date) < new Date(b.date)) {
-        return 1;
-      }
-      if(new Date(a.date) > new Date(b.date)) {
-        return -1;
-      }
-      return 0;
-    })
-  }
-
-  if(action.prop === 'date' && action.order === 'desc') {
-    allGamesCopy.sort((a, b) => {
-      if(new Date(a.date) > new Date(b.date)) {
-        return 1;
-      }
-      if(new Date(a.date) < new Date(b.date)) {
-        return -1;
-      }
-      return 0;
-    })
-  }
-
-  if(action.prop === 'rating' && action.order === 'asc') {
-    allGamesCopy.sort((a, b) => {
-      if(a.rating.length < b.rating.length) {
-        return 1;
-      }
-      if(a.rating.length > b.rating.length) {
-        return -1;
-      }
-      return 0;
-    })
-  }
-
-  if(action.prop === 'rating' && action.order === 'desc') {
-    allGamesCopy.sort((a, b) => {
-      if(a.rating.length > b.rating.length) {
-        return 1;
-      }
-      if(a.rating.length < b.rating.length) {
-        return -1;
-      }
-      return 0;
-    })
-  }
-  return updateObject(state, { allGames: allGamesCopy })
-}
+const sortBy = (state, action) => updateObject(state, { filter: [ action.prop, action.order ] });
 
 const decreaseRating = (state, action) => {
-  const userIdIndex = state.allGames[action.index].rating.indexOf(action.userId);
-  const updatedRating = [...state.allGames[action.index].rating];
+  const userIdIndex = state.allGames.byId[action.gameId].rating.indexOf(action.userId);
+  const updatedRating = [...state.allGames.byId[action.gameId].rating];
   if (userIdIndex !== -1) {
     updatedRating.splice(userIdIndex, 1);
   }
-  const updatedGameKeys = { ...state.allGames[action.index], rating: updatedRating, ratingControlDisabled: 'decrease' };
-  const updatedGames = [ ...state.allGames ];
-  updatedGames[action.index] = updatedGameKeys; 
-  return updateObject(state, { allGames: updatedGames});
+  const updatedGameKeys = { ...state.allGames.byId[action.gameId], rating: updatedRating, ratingControlDisabled: 'decrease' };
+  const updatedGames = { ...state.allGames.byId };
+  updatedGames[action.gameId] = updatedGameKeys; 
+  const allGamesCopy = { ...state.allGames };
+  allGamesCopy.byId = updatedGames;
+  return updateObject(state, { allGames: allGamesCopy});
 }
 
 const increaseRating = (state, action) => {
-  const userIdIndex = state.allGames[action.index].rating.indexOf(action.userId);
-  const updatedRating = [...state.allGames[action.index].rating];
+  const userIdIndex = state.allGames.byId[action.gameId].rating.indexOf(action.userId);
+  const updatedRating = [...state.allGames.byId[action.gameId].rating];
   if (userIdIndex === -1) {
     updatedRating.push(action.userId);
   }
-  const updatedGameKeys = { ...state.allGames[action.index], rating: updatedRating, ratingControlDisabled: 'increase' };
-  const updatedGames = [ ...state.allGames ];
-  updatedGames[action.index] = updatedGameKeys; 
-  return updateObject(state, { allGames: updatedGames});
+  const updatedGameKeys = { ...state.allGames.byId[action.gameId], rating: updatedRating, ratingControlDisabled: 'increase' };
+  const updatedGames = { ...state.allGames.byId };
+  updatedGames[action.gameId] = updatedGameKeys; 
+  const allGamesCopy = { ...state.allGames };
+  allGamesCopy.byId = updatedGames;
+  return updateObject(state, { allGames: allGamesCopy});
 }
 
 const reducer = (state = initialState, action) => {

@@ -5,6 +5,7 @@ import classes from './allGamesList.css';
 
 import { getGames, getUsers, sortBy, ratingIdRemove, ratingIdPush } from '../../store/actions/allGamesList';
 import { getGame } from '../../store/actions/game';
+import { getSortedGames } from '../../store/selectors';
 
 import Aux from '../../hoc/Auxx/Auxx';
 import Select from '../../components/UI/Select/Select';
@@ -13,7 +14,7 @@ import GameTileList from '../../components/GameTileList/GameTileList';
 import Loader from '../../components/UI/Loader/Loader';
 
 const propTypes = {
-  allGames: PropTypes.array.isRequired,
+  // allGames: PropTypes.object.isRequired,
   users: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object
@@ -59,7 +60,7 @@ class AllGamesList extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.allGames.length > 0) {
+    if (nextProps.allGames.byId) {
       return true;
     } else {
       return false;
@@ -105,14 +106,13 @@ class AllGamesList extends Component {
           }
         </div>
       </Aux>
-
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    allGames: state.allGamesList.allGames,
+    allGames: getSortedGames(state),
     users: state.allGamesList.users,
     userId: state.auth.userId,
     loading: state.allGamesList.loading

@@ -51,7 +51,7 @@ export const genericInputHandler = (event, inputId, form, formValidity) => {
   }
   updatedFormElement.value = event.target.value;
   let formIsValid = formValidity;
-  if(event.target.tagName !== 'SELECT') {
+  if (event.target.tagName !== 'SELECT') {
     const validationAnswer = checkValidity(updatedFormElement.value, updatedFormElement.validation);
     updatedFormElement.valid = validationAnswer.isValid;
     updatedFormElement.validationMsg = validationAnswer.msg;

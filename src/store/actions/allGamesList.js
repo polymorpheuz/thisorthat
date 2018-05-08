@@ -19,10 +19,17 @@ export const setGames = games => ({
 
 export const getUsers = () => ({ type: actionTypes.GET_USERS });
 
-export const setUsers = users => ({
-  type: actionTypes.SET_USERS,
-  users
-});
+export const setUsers = users => {
+  let normalizedUsers = { byId: {}, allIds: [] };
+  for(let user in users) {
+    normalizedUsers.byId[user] = users[user];
+    normalizedUsers.allIds.push(user);
+  }
+  return {
+    type: actionTypes.SET_USERS,
+    users: normalizedUsers
+  }
+};
 
 export const getUsersFail = error => ({
   type: actionTypes.GET_USERS_FAIL,

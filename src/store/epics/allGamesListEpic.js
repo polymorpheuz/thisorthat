@@ -3,7 +3,6 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs/Observable';
 import { getGamesStart, getGamesFail, setGames, decreaseRating, increaseRating, setUsers, getUsersFail } from '../actions/allGamesList';
 
-
 export const getGames = (action$, store) =>
   action$.ofType(actionTypes.GET_GAMES)
     .flatMap(action => 
@@ -12,9 +11,9 @@ export const getGames = (action$, store) =>
         .delay(300)
         .map(data => {
             const userId = store.getState().auth.userId;
-            const keys = [];
+            const normalizedState = { byId: {}, allIds: []};
             for (let key in data.response) {
-              // Disabled rating for unauthorized users
+              // Disable rating for unauthorized users
               let ratingControlDisabled = 'both';
               // If rating entry in game exists
               if(data.response[key].rating) {
@@ -30,7 +29,8 @@ export const getGames = (action$, store) =>
               if(data.response[key].rating) {
                 rating = Object.keys(data.response[key].rating);
               }
-              keys.push({
+              // Normalize data
+              normalizedState.byId[key] = {
                 gameId: key,
                 authorId: data.response[key].authorId,
                 questionTitle: data.response[key].questionTitle,
@@ -38,9 +38,10 @@ export const getGames = (action$, store) =>
                 imgCover: data.response[key].imgCover,
                 rating,
                 ratingControlDisabled
-              })
+              }
+              normalizedState.allIds.push(key);
             }
-            return setGames(keys);
+            return setGames(normalizedState);
         })
         .catch(err => Observable.of(console.log(err)))
         .startWith(getGamesStart())
