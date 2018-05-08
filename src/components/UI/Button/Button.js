@@ -12,7 +12,7 @@ const propTypes = {
 const button = props => {
   let buttonElement = null;
   switch (props.btnType) {
-    case ('squareBlue'):
+    case ('primary'):
       buttonElement = 
         <button 
           className={`${classes.buttonSquare} ${classes.blue}`} 
@@ -22,7 +22,7 @@ const button = props => {
           {props.children}
         </button>
       break;
-    case ('squareRed'):   
+    case ('secondary'):   
       buttonElement = 
         <button 
           className={`${classes.buttonSquare} ${classes.red}`} 
@@ -32,7 +32,7 @@ const button = props => {
           {props.children}
         </button>
       break;
-    case ('smallRoundNext'):  
+    case ('tertiary'):  
       buttonElement = 
         <button 
         className={`${classes.buttonRoundSmall} ${classes.next}`} 

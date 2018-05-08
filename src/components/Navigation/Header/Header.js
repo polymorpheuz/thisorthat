@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classes from './Header.css';
 import helperClasses from '../../../base/helpers.css';
-import logo from '../../../assets/logo.png';
 
 import NavItems from './NavItems/NavItems';
 import SideDrawer from '../SideDrawer/SideDrawer';
@@ -25,7 +24,7 @@ const header = props => (
             <div className={classes.drawerLine}></div>
         </div>
         <Link to="/">
-          <img src={logo} alt="logo" className={classes.logo} />
+          <p className={classes.logo} />
         </Link>
         <NavItems 
           isAuth={props.isAuth} clicked={props.profileMenuClicked} 

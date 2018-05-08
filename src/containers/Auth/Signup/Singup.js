@@ -73,9 +73,9 @@ class Signup extends Component {
     }
 
     let form = (
-      <form className={helperClasses.formContainer} onSubmit={this.submitHandler}>
+      <form className={classes.authFormContainer} onSubmit={this.submitHandler}>
           <h1 className={classes.formTitle}>Sign up</h1>
-          { this.props.error && <p className={classes.errorMessage}>{this.props.error}</p> }
+          { this.props.error && <span className={classes.errorMessage}>{this.props.error}</span> }
           {formArr.map(formElement => {
             return (
                 <Input 
@@ -92,7 +92,7 @@ class Signup extends Component {
                 />                   
             )
           })}
-          <Button btnType="squareBlue" disabled={!this.state.formIsValid}>Sign up</Button>
+          <Button btnType="primary" disabled={!this.state.formIsValid}>Sign up</Button>
       </form>
     ); 
     return (

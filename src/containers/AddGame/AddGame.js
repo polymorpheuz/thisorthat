@@ -315,7 +315,7 @@ class AddGame extends Component {
               )
             } 
           })}
-          <Button btnType="squareBlue" disabled={!this.state.formIsValid}>
+          <Button btnType="primary" disabled={!this.state.formIsValid}>
             { this.state.step === 1 ? 'Next' : 'Send' }
           </Button>
         </form>

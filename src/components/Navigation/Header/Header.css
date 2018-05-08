@@ -28,6 +28,7 @@
 .logo {
   height: 40px;
   width: 40px;
+  background-color: white;
 }
 
 @media (max-width: 660px) {

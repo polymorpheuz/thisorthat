@@ -105,14 +105,14 @@ class Game extends Component {
           {this.state.isAnswered === "wrong" && <span className={`${classes.answerTitle} ${classes.wrong}`}>NOPE!</span> }
           <div className={classes.ButtonWrapper}>
             { this.state.isAnswered
-              ? <Button btnType="smallRoundNext" clicked={this.nextQuestion}>
+              ? <Button btnType="tertiary" clicked={this.nextQuestion}>
                   <i className="material-icons icon">navigate_next</i>
                 </Button> 
               : <Aux>
-                  <Button btnType="squareBlue" clicked={() => this.checkAnswer(question.answer, this.props.chosenGame.answers.firstAnswer)}>
+                  <Button btnType="primary" clicked={() => this.checkAnswer(question.answer, this.props.chosenGame.answers.firstAnswer)}>
                     {this.props.chosenGame.answers.firstAnswer}
                   </Button>
-                  <Button btnType="squareBlue" clicked={() => this.checkAnswer(question.answer, this.props.chosenGame.answers.secondAnswer)}>
+                  <Button btnType="primary" clicked={() => this.checkAnswer(question.answer, this.props.chosenGame.answers.secondAnswer)}>
                   {this.props.chosenGame.answers.secondAnswer}
                   </Button>
                 </Aux>
@@ -145,7 +145,7 @@ class Game extends Component {
         <p className={classes.introDescription}>
           {this.props.chosenGame.description}
         </p>
-        <Button btnType="squareRed" clicked={this.startGame}>START</Button>
+        <Button btnType="secondary" clicked={this.startGame}>START</Button>
       </div>
       );
     }

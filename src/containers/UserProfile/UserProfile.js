@@ -99,7 +99,7 @@ class UserProfile extends Component {
                 />                   
             )
           })}
-          <Button btnType="squareBlue" disabled={!this.state.formIsValid}>Save changes</Button>
+          <Button btnType="primary" disabled={!this.state.formIsValid}>Save changes</Button>
         </form>
     ); 
     return (
